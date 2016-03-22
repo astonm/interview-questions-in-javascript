@@ -203,7 +203,7 @@
 
   function isBalanced(expression) {
     var check_string = expression;
-    var stack = [];
+    var count = 0;
 
     // If empty, parentheses are technically balanced
     if (check_string.length <= 0) return true
@@ -213,7 +213,7 @@
         stack.push(check_string[i]);
       } else if (check_string[i] === '}') {
         // pop on an empty array is undefined
-        if (stack.pop()) {
+        if (stack.length > 0) {
           stack.pop();
         } else {
           return false;
